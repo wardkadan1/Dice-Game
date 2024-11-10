@@ -1,6 +1,6 @@
 import { players } from "../../data";
 import Player from "../player/Player";
-import Dice from "./../Dice";
+import Dice from "../Dice/Dice";
 import NewGameButton from "../button/NewGameButton";
 import Controls from "../button/Controls";
 import dice3 from "../../assets/images/dice-3.png";
