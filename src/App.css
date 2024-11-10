@@ -77,6 +77,7 @@
 }
 
 .controls button {
+  color: black;
   background: #ccc;
   border: none;
   padding: 10px 20px;
@@ -87,6 +88,7 @@
 }
 
 .new-game-button button {
+  color: black;
   background: #eee;
   border: none;
   padding: 10px 20px;
