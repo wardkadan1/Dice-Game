@@ -44,6 +44,12 @@
   border-radius: 10px;
 }
 
+.winner {
+  background-color: #32cd32;
+  color: #ffffff;
+  border-color: #006400;
+}
+
 .current-score {
   background-color: #e91e63;
   padding: 10px;

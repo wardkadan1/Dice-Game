@@ -13,10 +13,12 @@ export default function Controls({
   setActiveplayer,
   setPlayersState,
   setDice,
+  disabled,
 }) {
   const [curr, setcurr] = useState(0);
 
   const rollDice = () => {
+    if (disabled) return;
     const newDice = [
       Math.ceil(Math.random() * 6),
       Math.ceil(Math.random() * 6),
@@ -62,6 +64,7 @@ export default function Controls({
   };
 
   const holdScore = () => {
+    if (disabled) return;
     setPlayersState(
       playersstate.map((player, index) =>
         index === activeplayer
@@ -75,8 +78,12 @@ export default function Controls({
 
   return (
     <div className="controls">
-      <button onClick={rollDice}>🎲 Roll Dice</button>
-      <button onClick={holdScore}>💾 Hold</button>
+      <button onClick={rollDice} disabled={disabled}>
+        🎲 Roll Dice
+      </button>
+      <button onClick={holdScore} disabled={disabled}>
+        💾 Hold
+      </button>
     </div>
   );
 }

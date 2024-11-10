@@ -14,6 +14,12 @@ export default function Bord() {
   const [diceImg, setDice] = useState([dice3, dice5]);
   const [targetScore, setTargetScore] = useState(0);
 
+  const player1IsWinner =
+    playersState[0].score >= targetScore && targetScore > 0;
+  const player2IsWinner =
+    playersState[1].score >= targetScore && targetScore > 0;
+  const isGameOver = player1IsWinner || player2IsWinner;
+
   if (activePlayer === -1) {
     return (
       <div>
@@ -43,6 +49,7 @@ export default function Bord() {
           score={playersState[0].score}
           currScore={playersState[0].currScore}
           activeP={activePlayer === 0}
+          isWinner={player1IsWinner}
         />
         <Dice dice1={diceImg[0]} dice2={diceImg[1]} />
         <Player
@@ -51,6 +58,7 @@ export default function Bord() {
           score={playersState[1].score}
           currScore={playersState[1].currScore}
           activeP={activePlayer === 1}
+          isWinner={player2IsWinner}
         />
       </div>
       <Controls
@@ -59,6 +67,7 @@ export default function Bord() {
         setActiveplayer={setActivePlayer}
         setPlayersState={setPlayersState}
         setDice={setDice}
+        disabled={isGameOver}
       />
     </>
   );
